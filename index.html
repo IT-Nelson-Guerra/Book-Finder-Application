@@ -87,7 +87,7 @@
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
-    <script src="js/index.js">
+        <script>
         $(document).ready(function() {
             var item, tile, author, publisher, bookLink, bookImg;
             var outputList = document.getElementById("list-output");
@@ -106,7 +106,7 @@
                     displayError();
                 } else {
                     // console.log(searchData);
-
+                    // $.get("https://www.googleapis.com/books/v1/volumes?q="+searchData, getBookData()});
                     $.ajax({
                         url: bookUrl + searchData,
                         dataType: "json",
@@ -169,7 +169,7 @@
              */
             function formatOutput(bookImg, title, author, publisher, bookLink, bookIsbn) {
                 // console.log(title + ""+ author +" "+ publisher +" "+ bookLink+" "+ bookImg)
-                var viewUrl = 'https://www.googleapis.com/books/v1/volumes?q=modern%20web' + bookIsbn; //constructing link for bookviewer
+                var viewUrl = 'book.html?isbn=' + bookIsbn; //constructing link for bookviewer
                 var htmlCard = `<div class="col-lg-6">
          <div class="card" style="">
            <div class="row no-gutters">
